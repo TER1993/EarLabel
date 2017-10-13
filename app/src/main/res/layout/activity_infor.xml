@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".InforActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_title_bar_layout" />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/card_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <ToggleButton
+            android:textSize="@dimen/sp18"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp5"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_click"
+            android:id="@+id/toggleButton_power"
+            android:padding="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/breeding_box_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/varieties"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/pig_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/reproductive_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/piglet_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp10">
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:text="@string/_tevEpidemicPreventionTime"/>
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:textColor="@color/black"
+                android:id="@+id/epidemic_prevention_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_widget_assets"
+                android:gravity="center_vertical"
+                android:hint="@null"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp10">
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:text="@string/_tevDateOfFertilization"/>
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:textColor="@color/black"
+                android:id="@+id/date_of_fertilization"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_widget_assets"
+                android:gravity="center_vertical"
+                android:hint="@null"/>
+        </LinearLayout>
+
+
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/fertilization_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/fertilization_cycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.speedata.earlabel.widget.TextEditView
+            android:id="@+id/feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:minHeight="@dimen/dp50"
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_margin="@dimen/dp10"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_click"
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5"
+                android:text="@string/clear_input"
+                tools:ignore="ButtonStyle,NestedWeights" />
+
+            <Button
+                android:layout_margin="@dimen/dp10"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_click"
+                android:id="@+id/btn_input"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5"
+                android:text="@string/save_message"
+                tools:ignore="ButtonStyle" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
