@@ -330,6 +330,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 //  break;
                             }
                             break;
+
+                            default:
+                                break;
                         }
                     }
 
@@ -512,6 +515,7 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
     }
 
     class ReadThread extends Thread {
+        @Override
         public void run() {
             super.run();
             Log.d("lfrfid", "thread start");

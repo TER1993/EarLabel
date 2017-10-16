@@ -40,10 +40,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Intent intent2 = new Intent(MainActivity.this, QueryActivity.class);
                 startActivity(intent2);
                 break;
+
+            default:
+                break;
         }
     }
 
 
+    @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
 
         switch (keyCode) {
@@ -56,6 +60,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 } else {                    //两次按键小于2秒时，退出应用
                     finish();
                 }
+                break;
+
+            default:
                 break;
         }
         return super.onKeyUp(keyCode, event);

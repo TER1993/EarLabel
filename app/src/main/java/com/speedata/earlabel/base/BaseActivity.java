@@ -74,9 +74,11 @@ public class BaseActivity extends Activity {
         if (leftVis) {
             imgExit.setVisibility(View.VISIBLE);
             imgExit.setImageDrawable(getResources().getDrawable(R.drawable.icon_back));
-        }
-        else
-            imgExit.setVisibility(View.INVISIBLE);
+        } else
+            {
+                imgExit.setVisibility(View.INVISIBLE);
+            }
+
         imgExit.setOnClickListener(lis);
 
     }

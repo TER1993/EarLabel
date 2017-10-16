@@ -319,6 +319,9 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
                                 //  break;
                             }
                             break;
+
+                            default:
+                                break;
                         }
                     }
 
@@ -495,6 +498,9 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
                 showDataDialog(R.id.date_of_fertilization);
                 break;
 
+            default:
+                break;
+
         }
     }
 
@@ -547,6 +553,7 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
     }
 
     class ReadThread extends Thread {
+        @Override
         public void run() {
             super.run();
             Log.d("lfrfid", "thread start");
@@ -669,6 +676,7 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
         return true;
     }
 
+    @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
 
         switch (keyCode) {
@@ -681,6 +689,9 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
                 } else {                    //两次按键小于2秒时，退出应用
                     finish();
                 }
+                break;
+
+            default:
                 break;
         }
         return super.onKeyUp(keyCode, event);
@@ -715,6 +726,9 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
                     mAvAssetsStatus.setText("");
                     mAvGyName.setText("");
 
+                    break;
+
+                default:
                     break;
             }
         }

@@ -41,7 +41,10 @@ public class AddAssetsView extends LinearLayout {
         if (attributes != null) {
             String title = attributes.getString(R.styleable.AddAssetsView_av_title);
             if (!TextUtils.isEmpty(title))
-                mTitleView.setText(title);
+                {
+                    mTitleView.setText(title);
+                }
+
             boolean clickable = attributes.getBoolean(R.styleable.AddAssetsView_av_clickable, true);
             mContentView.setEnabled(clickable);
             int type = attributes.getInt(R.styleable.AddAssetsView_et_type, 1);
