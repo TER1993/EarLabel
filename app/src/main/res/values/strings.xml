@@ -318,7 +318,7 @@
     <string name="_tevFertilizationCycle">受精周期</string>
     <string name="_tevFeed">饲料喂养</string>
     <string name="year_month_day">%d-%d-%d</string>
-    <string name="open_close_query">打开后寻找标签，关闭即可查询信息</string>
+    <string name="open_close_query">扫到标签即可显示对应信息</string>
     <string name="save_message">保存信息</string>
     <string name="clear_input">清空所有输入信息</string>
 

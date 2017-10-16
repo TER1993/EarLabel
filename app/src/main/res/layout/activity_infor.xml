@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    tools:context=".InforActivity">
+    tools:context=".widget.InforActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,6 +44,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp10">
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:text="品种"/>
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:id="@+id/av_assets_status"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_widget_assets"
+                android:gravity="center_vertical"
+                android:hint="@null"/>
+        </LinearLayout>
+
 
         <com.speedata.earlabel.widget.TextEditView
             android:id="@+id/pig_age"
@@ -128,6 +154,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp10">
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:text="受精方式"/>
+
+            <TextView
+                android:textSize="@dimen/sp18"
+                android:id="@+id/av_gy_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_widget_assets"
+                android:gravity="center_vertical"
+                android:hint="@null"/>
+        </LinearLayout>
+
         <com.speedata.earlabel.widget.TextEditView
             android:id="@+id/fertilization_cycle"
             android:layout_width="match_parent"

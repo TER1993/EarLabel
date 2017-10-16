@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InforActivity"
+        <activity android:name=".widget.InforActivity"
             android:screenOrientation="portrait"
             />
         <activity android:name=".QueryActivity"

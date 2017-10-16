@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.speedata.earlabel.base.BaseActivity;
+import com.speedata.earlabel.widget.InforActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

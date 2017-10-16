@@ -44,6 +44,22 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
 
     private TextEditView tevCardNumber; //卡号
     private ToggleButton powerBtn; //一个寻卡按钮，在卡号栏下面
+
+
+    private TextEditView tevBreedingBoxNo; //饲养栏号
+    private TextEditView tevVarieties; //品种
+    private TextEditView tevPigAge; //猪龄
+    private TextEditView tevWeight; //重量
+    private TextEditView tevReproductiveNumber; //生育次数
+    private TextEditView tevPigletQuantity; //仔猪数量
+    private TextEditView tevEpidemicPreventionTime; //防疫时间
+    private TextEditView tevDateOfFertilization; //受精日期
+
+    private TextEditView tevFertilizationMode; //受精方式
+    private TextEditView tevFertilizationCycle; //受精周期
+    private TextEditView tevFeed; //饲料喂养
+
+
     private TextView tvShow; //显示查询结果
 
     private BaseInforDao baseInforDao;
@@ -82,6 +98,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                 super.handleMessage(msg);
                 if(msg.what == 1)
                 {
+
+                    powerBtn.setText("扫到耳标");
+
                     byte[] buf = (byte[]) msg.obj;
                     if(buf.length==30)
                     {
@@ -118,6 +137,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //   break;
                             }
                             break;
@@ -132,6 +154,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //   break;
                             }
                             break;
@@ -146,6 +171,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 // break;
                             }
                             break;
@@ -160,6 +188,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //  break;
                             }
                             break;
@@ -174,6 +205,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0"+ "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //  break;
                             }
                             break;
@@ -188,6 +222,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //  break;
                             }
                             break;
@@ -202,6 +239,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 // break;
                             }
                             break;
@@ -216,6 +256,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //  break;
                             }
                             break;
@@ -230,6 +273,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0"+string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //  break;
                             }
                             break;
@@ -244,6 +290,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //	  break;
                             }
                             break;
@@ -258,6 +307,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + "0" + string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //	  break;
                             }
                             break;
@@ -272,6 +324,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + string ;
                                 tevCardNumber.setViewContent(combine);
+                                // 查询扫到后再查
+                                stopScan();
+                                showMessage();
                                 //  break;
                             }
                             break;
@@ -292,6 +347,9 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                         {
                             String jieguo = cnt.substring(1,cnt.length()-2);
                             tevCardNumber.setViewContent(jieguo);
+                            // 查询扫到后再查
+                            stopScan();
+                            showMessage();
                         }
                     }
                 }
@@ -305,6 +363,7 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
         initTitle("信息查询", true, v -> finish());
     }
 
+    @SuppressLint("WrongViewCast")
     private void initView() {
         //初始化显示
         tevCardNumber = findViewById(R.id.card_number);
@@ -315,6 +374,55 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
 
         powerBtn = findViewById(R.id.toggleButton_power);
         powerBtn.setOnCheckedChangeListener(this);
+        powerBtn.setText("扫码按钮");
+        powerBtn.setTextOn("扫码");
+        powerBtn.setTextOff("扫码");
+
+
+        tevBreedingBoxNo = findViewById(R.id.breeding_box_no);
+        tevBreedingBoxNo.setViewTitle(R.string._tevBreedingBoxNo);
+        tevBreedingBoxNo.setViewEnable(false);
+
+        tevVarieties = findViewById(R.id.varieties);
+        tevVarieties.setViewTitle(R.string._tevVarieties);
+        tevVarieties.setViewEnable(false);
+
+        tevPigAge = findViewById(R.id.pig_age);
+        tevPigAge.setViewTitle(R.string._tevPigAge);
+        tevPigAge.setViewEnable(false);
+
+        tevWeight = findViewById(R.id.weight);
+        tevWeight.setViewTitle(R.string._tevWeight);
+        tevWeight.setViewEnable(false);
+
+        tevReproductiveNumber = findViewById(R.id.reproductive_number);
+        tevReproductiveNumber.setViewTitle(R.string._tevReproductiveNumber);
+        tevReproductiveNumber.setViewEnable(false);
+
+        tevPigletQuantity = findViewById(R.id.piglet_quantity);
+        tevPigletQuantity.setViewTitle(R.string._tevPigletQuantity);
+        tevPigletQuantity.setViewEnable(false);
+
+        tevEpidemicPreventionTime = findViewById(R.id.epidemic_prevention_time);
+        tevEpidemicPreventionTime.setViewTitle(R.string._tevEpidemicPreventionTime); //防疫时间
+        tevEpidemicPreventionTime.setViewEnable(false);
+
+        tevDateOfFertilization = findViewById(R.id.date_of_fertilization);
+        tevDateOfFertilization.setViewTitle(R.string._tevDateOfFertilization); //受精日期
+        tevDateOfFertilization.setViewEnable(false);
+
+        tevFertilizationMode = findViewById(R.id.fertilization_mode);
+        tevFertilizationMode.setViewTitle(R.string._tevFertilizationMode);
+        tevFertilizationMode.setViewEnable(false);
+
+        tevFertilizationCycle = findViewById(R.id.fertilization_cycle);
+        tevFertilizationCycle.setViewTitle(R.string._tevFertilizationCycle);
+        tevFertilizationCycle.setViewEnable(false);
+
+        tevFeed = findViewById(R.id.feed);
+        tevFeed.setViewTitle(R.string._tevFeed);
+        tevFeed.setViewEnable(false);
+
 
         context = QueryActivity.this;
         baseInforDao = new BaseInforDao(context);
@@ -323,9 +431,8 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        //切换寻卡与停止状态
-        if(isChecked)
-        {
+        //切换就寻卡
+
             try {
                 DevCtrl.PowerOnDevice();
                 try {
@@ -342,26 +449,6 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
             } catch (IOException e) {
                 ToastUtil.show(this, "操作设备失败", ToastUtil.TOAST_SHOW_SHORT_TIME);
             }
-        }
-        else
-        {
-            try {
-                reader.interrupt();
-                try {
-                    Thread.sleep(3);
-                } catch (InterruptedException e) {
-
-                    e.printStackTrace();
-                }
-                DevCtrl.PowerOffDevice();
-//				contView.setText(" status is " + powerBtn.isChecked());
-            } catch (IOException e) {
-                ToastUtil.show(this, "操作设备失败", ToastUtil.TOAST_SHOW_SHORT_TIME);
-            }
-            // 查询
-            showMessage();
-        }
-
 
     }
 
@@ -376,20 +463,51 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
         baseInfors = baseInforDao.imQueryList("CardNumber=?", new String[]{cardNumber});
         if (baseInfors.size() == 0){
             tvShow.setText("数据库中没有当前标签对应的信息");
+
+            //tevCardNumber.setViewContent("");
+            tevBreedingBoxNo.setViewContent("");
+            tevVarieties.setViewContent("");
+            tevPigAge.setViewContent("");
+            tevWeight.setViewContent("");
+            tevReproductiveNumber.setViewContent("");
+            tevPigletQuantity.setViewContent("");
+            tevEpidemicPreventionTime.setViewContent("");
+            tevDateOfFertilization.setViewContent("");
+            tevFertilizationMode.setViewContent("");
+            tevFertilizationCycle.setViewContent("");
+            tevFeed.setViewContent("");
+
             return;
         }
 
         BaseInfor baseInfor = baseInfors.get(0);
 
 
-        String message = "卡号: " + baseInfor.getCardNumber() + "\n\n饲养栏号: " +baseInfor.getBreedingBoxNo()
-                + "\n\n品种: " + baseInfor.getVarieties() + "\n\n猪龄: " + baseInfor.getPigAge()
-                + "\n\n重量: " + baseInfor.getWeight() + "\n\n生育次数: " + baseInfor.getReproductiveNumber()
-                + "\n\n仔猪数量: " + baseInfor.getPigletQuantity() + "\n\n防疫时间: " + baseInfor.getEpidemicPreventionTime()
-                + "\n\n受精日期: " + baseInfor.getDateOfFertilization() + "\n\n受精方式: " + baseInfor.getFertilizationMode()
-                + "\n\n受精周期: " + baseInfor.getFertilizationCycle() + "\n\n饲料喂养: " + baseInfor.getFeed();
+//        String message = "卡号: " + baseInfor.getCardNumber() + "\n\n饲养栏号: " +baseInfor.getBreedingBoxNo()
+//                + "\n\n品种: " + baseInfor.getVarieties() + "\n\n猪龄: " + baseInfor.getPigAge()
+//                + "\n\n重量: " + baseInfor.getWeight() + "\n\n生育次数: " + baseInfor.getReproductiveNumber()
+//                + "\n\n仔猪数量: " + baseInfor.getPigletQuantity() + "\n\n防疫时间: " + baseInfor.getEpidemicPreventionTime()
+//                + "\n\n受精日期: " + baseInfor.getDateOfFertilization() + "\n\n受精方式: " + baseInfor.getFertilizationMode()
+//                + "\n\n受精周期: " + baseInfor.getFertilizationCycle() + "\n\n饲料喂养: " + baseInfor.getFeed();
+
+        String message = "显示标签对应信息";
 
         tvShow.setText(message);
+
+        //tevCardNumber.setViewContent(baseInfor.getCardNumber());
+        tevBreedingBoxNo.setViewContent(baseInfor.getBreedingBoxNo());
+        tevVarieties.setViewContent(baseInfor.getVarieties());
+        tevPigAge.setViewContent(baseInfor.getPigAge());
+        tevWeight.setViewContent(baseInfor.getWeight());
+        tevReproductiveNumber.setViewContent(baseInfor.getReproductiveNumber());
+        tevPigletQuantity.setViewContent(baseInfor.getPigletQuantity());
+        tevEpidemicPreventionTime.setViewContent(baseInfor.getEpidemicPreventionTime());
+        tevDateOfFertilization.setViewContent(baseInfor.getDateOfFertilization());
+        tevFertilizationMode.setViewContent(baseInfor.getFertilizationMode());
+        tevFertilizationCycle.setViewContent(baseInfor.getFertilizationCycle());
+        tevFeed.setViewContent(baseInfor.getFeed());
+
+
 
     }
 
@@ -417,6 +535,41 @@ public class QueryActivity extends BaseActivity implements CompoundButton.OnChec
                 }
             }
             Log.d("lfrfid", "thread stop");
+        }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        //去除判断，直接尝试关闭
+        String text = powerBtn.getText().toString();
+        if ("扫码".equals(text)){
+            try {
+                reader.interrupt();
+                DevCtrl.PowerOffDevice();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        NativeDev.CloseComPort();
+        super.onDestroy();
+    }
+
+
+    private void stopScan(){
+        try {
+            reader.interrupt();
+            try {
+                Thread.sleep(3);
+            } catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+            DevCtrl.PowerOffDevice();
+//				contView.setText(" status is " + powerBtn.isChecked());
+        } catch (IOException e) {
+            ToastUtil.show(this, "操作设备失败", ToastUtil.TOAST_SHOW_SHORT_TIME);
         }
     }
 }

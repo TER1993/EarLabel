@@ -40,7 +40,73 @@
         android:id="@+id/tv_show"
         android:text="@string/open_close_query"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="wrap_content" />
+
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/breeding_box_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/varieties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/pig_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/reproductive_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/piglet_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/epidemic_prevention_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/date_of_fertilization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/fertilization_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/fertilization_cycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <com.speedata.earlabel.widget.TextEditView
+        android:id="@+id/feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.speedata.earlabel;
+package com.speedata.earlabel.widget;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,15 +22,15 @@ import android.widget.ToggleButton;
 import com.android.lflibs.DeviceControl;
 import com.android.lflibs.serial_native;
 import com.elsw.base.utils.ToastUtil;
+import com.speedata.earlabel.R;
 import com.speedata.earlabel.base.BaseActivity;
 import com.speedata.earlabel.db.bean.BaseInfor;
 import com.speedata.earlabel.db.dao.BaseInforDao;
-import com.speedata.earlabel.widget.TextEditView;
 
 import java.io.IOException;
 import java.util.Calendar;
 
-public class InforActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+public class InforActivity extends BaseActivity implements IAddView, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     private DeviceControl DevCtrl;
     private static final String SERIALPORT_PATH = "/dev/ttyMT2";
@@ -72,6 +73,11 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
     private long firstTime = 0;
     private AlertDialog mDialog;
 
+    private TextView mAvAssetsStatus;
+    private TextView mAvGyName;
+
+
+
     @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +111,9 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                 super.handleMessage(msg);
                 if(msg.what == 1)
                 {
+
+                    powerBtn.setText("扫到耳标");
+
                     byte[] buf = (byte[]) msg.obj;
                     if(buf.length==30)
                     {
@@ -141,6 +150,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //   break;
                             }
                             break;
@@ -155,6 +165,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //   break;
                             }
                             break;
@@ -169,6 +180,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 // break;
                             }
                             break;
@@ -183,6 +195,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0"+ "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //  break;
                             }
                             break;
@@ -197,6 +210,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0"+ "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //  break;
                             }
                             break;
@@ -211,6 +225,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //  break;
                             }
                             break;
@@ -225,6 +240,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 // break;
                             }
                             break;
@@ -239,6 +255,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //  break;
                             }
                             break;
@@ -253,6 +270,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" + "0"+string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //  break;
                             }
                             break;
@@ -267,6 +285,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec+ "0" + "0" +string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //	  break;
                             }
                             break;
@@ -281,6 +300,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + "0" + string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //	  break;
                             }
                             break;
@@ -295,6 +315,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                                 String second_dec=Long.toString(dec_result);
                                 String combine = second_dec + string ;
                                 tevCardNumber.setViewContent(combine);
+                                stopScan();
                                 //  break;
                             }
                             break;
@@ -315,6 +336,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                         {
                             String jieguo = cnt.substring(1,cnt.length()-2);
                             tevCardNumber.setViewContent(jieguo);
+                            stopScan();
                         }
                     }
                 }
@@ -339,6 +361,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
         tevVarieties = findViewById(R.id.varieties);
         tevVarieties.setViewTitle(R.string._tevVarieties);
+        tevVarieties.setVisibility(View.GONE);
 
         tevPigAge = findViewById(R.id.pig_age);
         tevPigAge.setViewTitle(R.string._tevPigAge);
@@ -360,6 +383,7 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
         tevFertilizationMode = findViewById(R.id.fertilization_mode);
         tevFertilizationMode.setViewTitle(R.string._tevFertilizationMode);
+        tevFertilizationMode.setVisibility(View.GONE);
 
         tevFertilizationCycle = findViewById(R.id.fertilization_cycle);
         tevFertilizationCycle.setViewTitle(R.string._tevFertilizationCycle);
@@ -369,6 +393,9 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
         powerBtn = findViewById(R.id.toggleButton_power);
         powerBtn.setOnCheckedChangeListener(this);
+        powerBtn.setText("扫码按钮");
+        powerBtn.setTextOn("扫码");
+        powerBtn.setTextOff("扫码");
 
         btnInput = findViewById(R.id.btn_clear);
         btnInput.setOnClickListener(this);
@@ -378,6 +405,13 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
         context = InforActivity.this;
         baseInforDao = new BaseInforDao(context);
+
+
+        mAvAssetsStatus = findViewById(R.id.av_assets_status);
+        mAvAssetsStatus.setOnClickListener(this);
+        mAvGyName = findViewById(R.id.av_gy_name);
+        mAvGyName.setOnClickListener(this);
+
 
 
         // 创建清空显示的确认对话框
@@ -394,9 +428,8 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        //切换寻卡与停止状态
-        if(isChecked)
-        {
+
+        //切换就寻卡
             try {
                 DevCtrl.PowerOnDevice();
                 try {
@@ -413,30 +446,25 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
             } catch (IOException e) {
                 ToastUtil.show(this, "操作设备失败", ToastUtil.TOAST_SHOW_SHORT_TIME);
             }
-        }
-        else
-        {
-            try {
-                reader.interrupt();
-                try {
-                    Thread.sleep(3);
-                } catch (InterruptedException e) {
-
-                    e.printStackTrace();
-                }
-                DevCtrl.PowerOffDevice();
-//				contView.setText(" status is " + powerBtn.isChecked());
-            } catch (IOException e) {
-                ToastUtil.show(this, "操作设备失败", ToastUtil.TOAST_SHOW_SHORT_TIME);
-            }
-        }
 
 
     }
 
     @Override
     public void onClick(View v) {
+        SetContentPopWindow popWindow;
         switch (v.getId()){
+
+            case R.id.av_assets_status:
+                popWindow = new SetContentPopWindow(this, this, R.id.av_assets_status);
+                popWindow.showAtLocation(mAvAssetsStatus, Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+                break;
+
+            case R.id.av_gy_name:
+                popWindow = new SetContentPopWindow(this, this, R.id.av_gy_name);
+                popWindow.showAtLocation(mAvGyName, Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+                break;
+
             case R.id.btn_clear:
 
                 mDialog.show();
@@ -445,10 +473,14 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
             case R.id.btn_input:
 
-                commit(tevCardNumber.getViewContent(), tevBreedingBoxNo.getViewContent(), tevVarieties.getViewContent(),
+                commit(tevCardNumber.getViewContent(), tevBreedingBoxNo.getViewContent(),
+                        //tevVarieties.getViewContent(),
+                        mAvAssetsStatus.getText().toString(),
                         tevPigAge.getViewContent(), tevWeight.getViewContent(), tevReproductiveNumber.getViewContent(),
                         tevPigletQuantity.getViewContent(), tevEpidemicPreventionTime.getText().toString(),
-                        tevDateOfFertilization.getText().toString(), tevFertilizationMode.getViewContent(),
+                        tevDateOfFertilization.getText().toString(),
+                        //tevFertilizationMode.getViewContent(),
+                        mAvGyName.getText().toString(),
                         tevFertilizationCycle.getViewContent(), tevFeed.getViewContent());
 
                 break;
@@ -494,6 +526,26 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
         ToastUtil.show(this, "数据保存成功", ToastUtil.TOAST_SHOW_SHORT_TIME);
     }
 
+    @Override
+    public void completeSelect(int id, SelectEntity content) {
+
+        switch (id) {
+            case R.id.av_assets_status:
+
+                mAvAssetsStatus.setText(content.getShow());
+                break;
+            case R.id.av_gy_name:
+
+                mAvGyName.setText(content.getShow());
+                break;
+
+            default:
+                break;
+        }
+
+
+    }
+
     class ReadThread extends Thread {
         public void run() {
             super.run();
@@ -523,8 +575,9 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
     @Override
     protected void onDestroy() {
-        if(powerBtn.isChecked())
-        {
+       //去除判断，直接尝试关闭
+        String text = powerBtn.getText().toString();
+        if ("扫码".equals(text)){
             try {
                 reader.interrupt();
                 DevCtrl.PowerOffDevice();
@@ -532,6 +585,8 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
                 e.printStackTrace();
             }
         }
+
+
         NativeDev.CloseComPort();
         super.onDestroy();
     }
@@ -647,20 +702,44 @@ public class InforActivity extends BaseActivity implements CompoundButton.OnChec
 
                     tevCardNumber.setViewContent("");
                     tevBreedingBoxNo.setViewContent("");
-                    tevVarieties.setViewContent("");
+                   // tevVarieties.setViewContent("");
                     tevPigAge.setViewContent("");
                     tevWeight.setViewContent("");
                     tevReproductiveNumber.setViewContent("");
                     tevPigletQuantity.setViewContent("");
                     tevEpidemicPreventionTime.setText("");
                     tevDateOfFertilization.setText("");
-                    tevFertilizationMode.setViewContent("");
+                  //  tevFertilizationMode.setViewContent("");
                     tevFertilizationCycle.setViewContent("");
                     tevFeed.setViewContent("");
+                    mAvAssetsStatus.setText("");
+                    mAvGyName.setText("");
 
                     break;
             }
         }
     }
+
+
+
+    private void stopScan(){
+        try {
+            reader.interrupt();
+            try {
+                Thread.sleep(3);
+            } catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+            DevCtrl.PowerOffDevice();
+//				contView.setText(" status is " + powerBtn.isChecked());
+        } catch (IOException e) {
+            ToastUtil.show(this, "操作设备失败", ToastUtil.TOAST_SHOW_SHORT_TIME);
+        }
+    }
+
+
+
+
 
 }
