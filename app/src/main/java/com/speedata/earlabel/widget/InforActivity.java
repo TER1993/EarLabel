@@ -41,7 +41,7 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
     private ReadThread reader;
 
     private int size = 0;
-    private byte xor_result = 0;
+    private byte xor_result;
     private int count0 = 0;
     private int count1 = 0;
     private int count2 = 0;
@@ -415,7 +415,7 @@ public class InforActivity extends BaseActivity implements IAddView, CompoundBut
         mAvGyName = findViewById(R.id.av_gy_name);
         mAvGyName.setOnClickListener(this);
 
-
+        xor_result = 0;
 
         // 创建清空显示的确认对话框
         DialogButtonOnClickListener dialogButtonOnClickListener = new DialogButtonOnClickListener();
