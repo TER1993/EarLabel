@@ -30,10 +30,6 @@ public  class DetailsInfor { //保存的详细仔猪数量信息及多次的防�
     private String CardNumber; //卡号,唯一键值用于关联相关信息
 
 
-    @Column(name = "BreedingBoxNo")
-    private String BreedingBoxNo; //饲养栏号
-
-
     @Column(name = "ReproductiveNumber")
     private String ReproductiveNumber; //生育次数
 
@@ -51,14 +47,6 @@ public  class DetailsInfor { //保存的详细仔猪数量信息及多次的防�
 
     public void setCardNumber(String cardNumber) {
         CardNumber = cardNumber;
-    }
-
-    public String getBreedingBoxNo() {
-        return BreedingBoxNo;
-    }
-
-    public void setBreedingBoxNo(String breedingBoxNo) {
-        BreedingBoxNo = breedingBoxNo;
     }
 
     public String getReproductiveNumber() {
@@ -89,7 +77,6 @@ public  class DetailsInfor { //保存的详细仔猪数量信息及多次的防�
     public String toString() {
         return "DetailsInfor{" +
                 "CardNumber='" + CardNumber + '\'' +
-                ", BreedingBoxNo='" + BreedingBoxNo + '\'' +
                 ", ReproductiveNumber='" + ReproductiveNumber + '\'' +
                 ", PigletQuantity=" + PigletQuantity +
                 ", EpidemicPreventionTime=" + EpidemicPreventionTime +
